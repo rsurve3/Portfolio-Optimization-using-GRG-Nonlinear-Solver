@@ -61,10 +61,10 @@ Formula to calculate Covariance.S is:
 
 Sample Covariance = Σ(xij – x’)2 / (n-1)
 In this formula
-Σ   : Denotes Summation this is a Greek symbol
-Xij : The value of dataset which is in Row i and Column j
-X’  : Denotes Mean value of the dataset
-N  : The total number of observations
+1. Σ   : Denotes Summation this is a Greek symbol
+2. Xij : The value of dataset which is in Row i and Column j
+3. X’  : Denotes Mean value of the dataset
+4. N  : The total number of observations
 
 
 Correlation coefficient
@@ -79,12 +79,12 @@ Correlation coefficient Formula:
  
 
 Where:
-n   : Total of observations
-x   : Array 1 
-y   : Array 2
-Σx : Summation of all the observations in Array 1
-Σy : Summation of all the observations in Array 2
-Σxy : Summation of products of observations in Array 1 and Array 2
+1. n   : Total of observations
+2. x   : Array 1 
+3. y   : Array 2
+4. Σx : Summation of all the observations in Array 1
+5. Σy : Summation of all the observations in Array 2
+6. Σxy : Summation of products of observations in Array 1 and Array 2
 
  
 
@@ -135,11 +135,11 @@ After calculation, we found out that the compound annual growth rate and the mon
 
 Assumptions 
 
-●	The investment horizon is fixed for all the investors which is from June 30, 2021 to October 1, 2021, which means every investor does his investment on 30th of June 2021 and returns are calculated on 1st of October 2021.
-●	For optimization of allocation ratios of stocks we have used data from January 1, 2021 to June 15, 2021 which is roughly about five and half months of data. Whereas all the companies present in the portfolio were listed on the stock market more than 10 years ago. So considering the five and half months of data to optimize the allocation percentages would not provide the best possible allocation ratios.
-●	We are also not taking into account major Socio-Economic series of events which might have considerable impact on the stock market, these can include a lot of events like global recession, outbreak of pandemic like Covid-19, geopolitical events etc.
-●	Another assumption is there are no changes in rules and regulations by governing bodies like Reserve Bank of India (RBI) and Securities and Exchange Board of India (SEBI). Any changes or measures by these governing bodies can also have an impact on the performance of stocks in the stock market.
-●	Also the grants and packages offered by the government of India for a particular industry can have significant impact on the performance of a particular sector or industry, these events are also not taken into consideration.
+1. The investment horizon is fixed for all the investors which is from June 30, 2021 to October 1, 2021, which means every investor does his investment on 30th of June 2021 and returns are calculated on 1st of October 2021.
+2. For optimization of allocation ratios of stocks we have used data from January 1, 2021 to June 15, 2021 which is roughly about five and half months of data. Whereas all the companies present in the portfolio were listed on the stock market more than 10 years ago. So considering the five and half months of data to optimize the allocation percentages would not provide the best possible allocation ratios.
+3. We are also not taking into account major Socio-Economic series of events which might have considerable impact on the stock market, these can include a lot of events like global recession, outbreak of pandemic like Covid-19, geopolitical events etc.
+4. Another assumption is there are no changes in rules and regulations by governing bodies like Reserve Bank of India (RBI) and Securities and Exchange Board of India (SEBI). Any changes or measures by these governing bodies can also have an impact on the performance of stocks in the stock market.
+5. Also the grants and packages offered by the government of India for a particular industry can have significant impact on the performance of a particular sector or industry, these events are also not taken into consideration.
 
 
 
@@ -149,10 +149,10 @@ Assumptions
 
 Limitations
 
-●	This optimization model cannot factor arbitrage opportunities because such opportunities are for shorter investment horizons and we have a fixed investment horizon of about 3 months.
-●	Various ratios such as Repo rate and Reverse Repo rate are also not factored into the model because these rates are dynamic and they are regulated by the Reserve Bank of India (RBI).
-●	Various Stock market events like offering of Bonus shares, Stock splits, merger of two or more companies, foreign investments, performance of Indian economy as compared to performance of global economy, delisting of stock, offer of FPO by company, promoters reducing their stake, announcement of dividends, etc which can have considerable impact on the stocks in mutual fund portfolio, are also not considered in this analysis model due to lack of resources.
-●	Addition of new stock due to exceptional performance of stock during investment horizon or removal of stock due to poor performance are also not considered during the entire investment window which is from June 30, 2021 to October 1, 2021.
+1. This optimization model cannot factor arbitrage opportunities because such opportunities are for shorter investment horizons and we have a fixed investment horizon of about 3 months.
+2. Various ratios such as Repo rate and Reverse Repo rate are also not factored into the model because these rates are dynamic and they are regulated by the Reserve Bank of India (RBI).
+3. Various Stock market events like offering of Bonus shares, Stock splits, merger of two or more companies, foreign investments, performance of Indian economy as compared to performance of global economy, delisting of stock, offer of FPO by company, promoters reducing their stake, announcement of dividends, etc which can have considerable impact on the stocks in mutual fund portfolio, are also not considered in this analysis model due to lack of resources.
+4. Addition of new stock due to exceptional performance of stock during investment horizon or removal of stock due to poor performance are also not considered during the entire investment window which is from June 30, 2021 to October 1, 2021.
 
 
 
