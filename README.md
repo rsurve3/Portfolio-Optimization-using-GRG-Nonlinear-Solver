@@ -42,12 +42,6 @@ Even if this allows us to match the portfolio’s current returns, we would cons
 
 Input data used for this analysis includes opening price of stock for particular trading day and daily percentage change in price of stock as compared to previous day. This data was collected from various sources like moneycontrol website, National Stock Exchange (NSE India), Bombay Stock Exchange (BSE India), Securities and Exchange Board of India(SEBI), Axis Bank Mutual Fund - Banking Fund Monthly statements and Yahoo finance. Data from Axis Bank Mutual Fund was used to determine which stocks are included in the mutual fund portfolio and the ratio of investing the net investments into all the stocks is also fetched from the mutual fund statements provided by mutual fund house i.e., Axis bank. The NSE, BSE and Yahoo Finance provided the accurate data of opening prices of stocks from January 1, 2021 to June 15, 2021. NAV of each unit of mutual fund was fetched from Yahoo Finance webpage to calculate the returns from January 1, 2021 to June 15, 2021.
 
-**Input Variables	Output Variables**
-Opening price of Stocks	Growth rate / month
-Daily Percentage Change	Growth rate / year
-	Sharpe ratio
-	Variance - (Volatility)
-
 
 We fetched data of stocks from June 30, 2021 to October 1, 2021 to compute the expected results after investing in optimized allocation ratios of investing, in all the stocks present in the mutual fund portfolio. 
 
@@ -66,6 +60,8 @@ In this formula
 3. X’  : Denotes Mean value of the dataset
 4. N  : The total number of observations
 
+![image](https://user-images.githubusercontent.com/122759737/214118652-b407138e-9e5c-4e31-8b76-28ce669cc230.png)
+
 
 **Correlation coefficient**
 
@@ -76,6 +72,8 @@ Correlation coefficient is the statistical unit that measures the degree to whic
 +1 : Perfect Positive correlation
  
 Correlation coefficient Formula:
+
+![image](https://user-images.githubusercontent.com/122759737/214118695-f89cb291-9bb6-4ca8-8460-a809b4c418a7.png)
  
 
 Where:
@@ -86,19 +84,26 @@ Where:
 5. Σy : Summation of all the observations in Array 2
 6. Σxy : Summation of products of observations in Array 1 and Array 2
 
- 
+![image](https://user-images.githubusercontent.com/122759737/214119021-9b3a59a8-03fb-47ec-8a36-0b49b31a9f9f.png)
 
 **Model development** 
+
+![image](https://user-images.githubusercontent.com/122759737/214119839-c928b74f-21fb-459a-9902-faeb3ca165e2.png)
+
 
 After preparing the data and calculating the covariance of stocks, we calculate the average returns of all the 12 stocks in the Axis Bank mutual fund. The average return is basically the average of the daily percentage change of all the stocks over the period of 6.5 months.
                     
 The further step would be to calculate the returns of each stock over the time period. To do so, we subtract the price of the stock on 15 June 2021 (which is the last data point in our dataset) and price of stock on 1st January 2021 which is then divided by the 1st day stock price. This would give us the percentage of the returns that a particular stock has given from January 1, 2021 to June 15, 2021. 
 
+![image](https://user-images.githubusercontent.com/122759737/214119137-c11807f1-de7b-4497-88a4-67b8f122f1cc.png)
 
 
 As shown in the figure above, we can see that the 6 months return of HDFC bank is 3% over the period of 6 months from January 2021 at which the price was INR 1440 to June 2021 on which price of stock hiked to INR 1486, ICICI Bank gave a return of 19% and so on.
 
 Weights of the stocks are the percentages of stocks bought in the mutual fund. The 12 stocks collectively comprise 100% of the portfolio. The optimized weight of the stock column are the decision variables for our portfolio optimization model. Decision variables are changing variables wherein the excel's solver function adjusts the values in these cells to satisfy the given constraints and further produce the optimal result from the objective cell.
+
+
+![image](https://user-images.githubusercontent.com/122759737/214119357-0809e3c7-5bf9-463e-9ebe-86907abf2089.png)
 
 
 We calculated the total portfolio return over the period of 6 months, this can be done using the sumproduct formula in excel wherein the two parameters are: Return of individual stocks and the decision variables i.e. Optimized weights of stocks. 
@@ -109,15 +114,24 @@ By taking the square root of the variance we get the standard deviation which is
 
 Lastly, Sharpe ratio is calculated which measures the performance of an investment such as a portfolio to a risk free asset. In other words, it is a metric to compare the risk free rate to the designed portfolio. Maximum the sharpe ratio, higher is the return on the investment. 
 
+![image](https://user-images.githubusercontent.com/122759737/214119384-7c82dcd4-b5b6-4a03-999a-6a0433355831.png)
                             
 
 Objective of the portfolio optimization model is to maximize the sharpe ratio to earn higher returns  on our investment. In order to do so, we use excel's solver function to optimize the portfolio by setting the objective to maximize as sharpe ratio with constraints such as no investment should be less than 5% and greater than 15% in order to avoid over allocation of funds in any single stock which would result in reducing the risk by diversifying the portfolio.
 With the help of the GRG NonLinear algorithm we solve our model and compute the maximum sharpe ratio as 10.634 while all the constraints are satisfied. It is necessary to use the GRG nonlinear method of solver in this case rather than simplex or evolutionary methods because the portfolio optimization model is a nonlinear problem and can be only solved by GRG Nonlinear algorithm
                                      
-                    
+
+
+![image](https://user-images.githubusercontent.com/122759737/214119418-ddbb7810-bec5-48d8-8c84-4a6ab8893f13.png)
+
+   
+   
 **Results**
 
 From Jan 1, 2021 to June 15, 2021, the Axis Bank Mutual Fund is giving 13.274% return. After running GRG - Nonlinear solver on our model, where the risk free rate is 6% and the standard deviation i.e. volatility of the stock is 2.0769%, we get the sharpe ratio as 10.6334. Also, after running the solver, the weights of the stocks i.e. the changing variables of our model are optimized while adhering to the model constraints as follows:-
+
+
+![image](https://user-images.githubusercontent.com/122759737/214119503-e9c61696-8537-4cbc-8f1f-4610568379a0.png)
 
 
 After the stock weights are optimized, the portfolio return rises from 13.274% to 28.085%. That is a whopping 111% increase. 
@@ -131,6 +145,9 @@ The biggest changes in the stock weight allocation can be seen in HDFC and ICICI
 Now after finding the weights of the stocks to be invested in, we compared the optimized weights of stocks versus the original weights of the stocks in Axis Bank Mutual Fund for the next three months i.e. from 30 June, 2021 to 1 October, 2022. 
 
 After calculation, we found out that the compound annual growth rate and the monthly compound rate of the original weights of stock is 25% and 2.09% respectively, while that of optimized weights of stocks is 39.14% and 3.26% respectively. 
+
+
+![image](https://user-images.githubusercontent.com/122759737/214119529-43ba7b3d-1296-4e50-9d82-73e421c89571.png)
 
 
 **Assumptions** 
@@ -164,6 +181,9 @@ After calculation, we found out that the compound annual growth rate and the mon
 
 
 **Conclusion**
+
+![image](https://user-images.githubusercontent.com/122759737/214119574-f6a5bb25-4960-43f6-b58f-9a8e5b21f7a8.png)
+
 
 Upon computing the allocation returns of the optimized portfolio it can be concluded that the CAGR Compounding Annual Growth Rate) of the original portfolio was 25% and the CAGR (Compounding Annual Growth Rate) of the optimized portfolio was 39.12%, which is approximately 14% higher than the original portfolio.
 
