@@ -61,10 +61,10 @@ Formula to calculate Covariance.S is:
 
 Sample Covariance = Σ(xij – x’)2 / (n-1)
 In this formula
-●	Σ   : Denotes Summation this is a Greek symbol
-●	Xij : The value of dataset which is in Row i and Column j
-●	X’  : Denotes Mean value of the dataset
-●	N  : The total number of observations
+Σ   : Denotes Summation this is a Greek symbol
+Xij : The value of dataset which is in Row i and Column j
+X’  : Denotes Mean value of the dataset
+N  : The total number of observations
 
 
 Correlation coefficient
@@ -79,12 +79,12 @@ Correlation coefficient Formula:
  
 
 Where:
-●	n   : Total of observations
-●	x   : Array 1 
-●	y   : Array 2
-●	Σx : Summation of all the observations in Array 1
-●	Σy : Summation of all the observations in Array 2
-●	Σxy : Summation of products of observations in Array 1 and Array 2
+n   : Total of observations
+x   : Array 1 
+y   : Array 2
+Σx : Summation of all the observations in Array 1
+Σy : Summation of all the observations in Array 2
+Σxy : Summation of products of observations in Array 1 and Array 2
 
  
 
