@@ -1,7 +1,7 @@
 # Portfolio-Optimization-using-GRG-Nonlinear-Solver
 
  
-Abstract
+**Abstract**
 
 Diversification is the practice of spreading your investments to ensure that the exposure to any one type of asset is limited. This practice is designed to reduce the volatility of your portfolio over time.
 
@@ -12,7 +12,7 @@ Therefore, there is the necessity for us to research about ways to correctly ide
 
 
 
-Introduction
+**Introduction**
 
 A mutual fund is a type of financial vehicle made up of a pool of money collected from many investors to invest in securities like stocks, bonds, money market instruments, and other assets. Mutual funds give small or individual investors access to diversified, professionally managed portfolios at a low price. As a mutual fund investor, you don’t directly own the stock in the companies the fund purchases but share equally in the profits or losses of the fund’s total holdings, one of the reasons they’re called “mutual funds.”
 
@@ -20,7 +20,7 @@ The prospect of not investing all your money in a single stock, but rather in a 
 
 The theme of this project is to optimize the weight of the stocks involved in a mutual fund portfolio on the basis of their returns over a period of time, while also not concentrating our investment in just a few stocks to make it as risk-averse as possible.  
 
-Overview of Axis Bank Mutual Fund
+**Overview of Axis Bank Mutual Fund**
 
 For the purpose of our research, we picked the Axis Bank Mutual Fund. It’s a mutual fund which is a collection of stocks of 12 different companies - namely HDFC, ICICI Bank, SBI, Kotak Mahindra Bank Ltd, Axis Bank Ltd, Indusind, AU Small Finance Bank, Bandhan Bank Ltd, Federal Bank, RBL Bank, PNB Bank, IDFC First Bank. 
 
@@ -28,7 +28,7 @@ Axis Mutual Fund launched its first scheme in October 2009. And since then, Axis
 
 We picked this fund as we were able to easily procure all the historical data for this fund from Yahoo Finance, as well as the fact that a great performing fund such as this one gave us a great benchmark to work with to assess how our optimization algorithm performs. 
 
-Motivation & Hypothesis
+**Motivation & Hypothesis**
 
 While the AXIS Bank Mutual Fund has been performing admirably over the past years, we observed that the distribution of the investments is slightly risky, with ~86% of the proportion of the investments being currently held by just 5 out of the 12 companies. 
 
@@ -38,11 +38,11 @@ Our hypothesis is that using the past returns of the stocks would allow us to en
 
 Even if this allows us to match the portfolio’s current returns, we would consider our algorithm a success as we were to match those returns with much lower risk. And if we’re able to improve the returns, it would definitely add a feather to the cap.
 
-Data Collection
+**Data Collection**
 
 Input data used for this analysis includes opening price of stock for particular trading day and daily percentage change in price of stock as compared to previous day. This data was collected from various sources like moneycontrol website, National Stock Exchange (NSE India), Bombay Stock Exchange (BSE India), Securities and Exchange Board of India(SEBI), Axis Bank Mutual Fund - Banking Fund Monthly statements and Yahoo finance. Data from Axis Bank Mutual Fund was used to determine which stocks are included in the mutual fund portfolio and the ratio of investing the net investments into all the stocks is also fetched from the mutual fund statements provided by mutual fund house i.e., Axis bank. The NSE, BSE and Yahoo Finance provided the accurate data of opening prices of stocks from January 1, 2021 to June 15, 2021. NAV of each unit of mutual fund was fetched from Yahoo Finance webpage to calculate the returns from January 1, 2021 to June 15, 2021.
 
-Input Variables	Output Variables
+**Input Variables	Output Variables**
 Opening price of Stocks	Growth rate / month
 Daily Percentage Change	Growth rate / year
 	Sharpe ratio
@@ -52,9 +52,9 @@ Daily Percentage Change	Growth rate / year
 We fetched data of stocks from June 30, 2021 to October 1, 2021 to compute the expected results after investing in optimized allocation ratios of investing, in all the stocks present in the mutual fund portfolio. 
 
 
-Data preparation
+**Data preparation**
 
-Covariance
+**Covariance**
 
 Excel has two functions to calculate variance Covariance.P and Covariance.S. Function Covariance.P is used to calculate covariance of population data and Covariance.S is used to calculate covariance of sample data. We have used Covariance.S since we have to calculate sample covariance.
 Formula to calculate Covariance.S is:
@@ -67,7 +67,7 @@ In this formula
 4. N  : The total number of observations
 
 
-Correlation coefficient
+**Correlation coefficient**
 
 Correlation coefficient is the statistical unit that measures the degree to which two stocks are related to each other. Correlation coefficient can be in the range of -1 to +1. Where 0 represents no correlation between two stocks. 0 to +1 denotes positive correlation which means both the stocks are positively correlated if the price of one stock increases the the price of other stock will also increase. If the Correlation coefficient lies between -1 to 0 this means that both the stocks are negatively correlated, which means price of both the stocks would travel in opposite direction.
 
@@ -88,7 +88,7 @@ Where:
 
  
 
-Model development 
+**Model development** 
 
 After preparing the data and calculating the covariance of stocks, we calculate the average returns of all the 12 stocks in the Axis Bank mutual fund. The average return is basically the average of the daily percentage change of all the stocks over the period of 6.5 months.
                     
@@ -115,7 +115,7 @@ Objective of the portfolio optimization model is to maximize the sharpe ratio to
 With the help of the GRG NonLinear algorithm we solve our model and compute the maximum sharpe ratio as 10.634 while all the constraints are satisfied. It is necessary to use the GRG nonlinear method of solver in this case rather than simplex or evolutionary methods because the portfolio optimization model is a nonlinear problem and can be only solved by GRG Nonlinear algorithm
                                      
                     
-Results
+**Results**
 
 From Jan 1, 2021 to June 15, 2021, the Axis Bank Mutual Fund is giving 13.274% return. After running GRG - Nonlinear solver on our model, where the risk free rate is 6% and the standard deviation i.e. volatility of the stock is 2.0769%, we get the sharpe ratio as 10.6334. Also, after running the solver, the weights of the stocks i.e. the changing variables of our model are optimized while adhering to the model constraints as follows:-
 
@@ -133,7 +133,7 @@ Now after finding the weights of the stocks to be invested in, we compared the o
 After calculation, we found out that the compound annual growth rate and the monthly compound rate of the original weights of stock is 25% and 2.09% respectively, while that of optimized weights of stocks is 39.14% and 3.26% respectively. 
 
 
-Assumptions 
+**Assumptions** 
 
 1. The investment horizon is fixed for all the investors which is from June 30, 2021 to October 1, 2021, which means every investor does his investment on 30th of June 2021 and returns are calculated on 1st of October 2021.
 2. For optimization of allocation ratios of stocks we have used data from January 1, 2021 to June 15, 2021 which is roughly about five and half months of data. Whereas all the companies present in the portfolio were listed on the stock market more than 10 years ago. So considering the five and half months of data to optimize the allocation percentages would not provide the best possible allocation ratios.
@@ -147,7 +147,7 @@ Assumptions
 
 
 
-Limitations
+**Limitations**
 
 1. This optimization model cannot factor arbitrage opportunities because such opportunities are for shorter investment horizons and we have a fixed investment horizon of about 3 months.
 2. Various ratios such as Repo rate and Reverse Repo rate are also not factored into the model because these rates are dynamic and they are regulated by the Reserve Bank of India (RBI).
@@ -163,7 +163,7 @@ Limitations
 
 
 
-Conclusion
+**Conclusion**
 
 Upon computing the allocation returns of the optimized portfolio it can be concluded that the CAGR Compounding Annual Growth Rate) of the original portfolio was 25% and the CAGR (Compounding Annual Growth Rate) of the optimized portfolio was 39.12%, which is approximately 14% higher than the original portfolio.
 
